@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
    
@@ -27,7 +28,7 @@ int main() {
     printf("\nINSERIR DADOS DA CARTA 1\n");
 
     printf("Digite o código da cidade:\n");
-    scanf("%s", &codigo1);
+    scanf("%s", codigo1);
 
     printf("Digite a cidade:\n");
     scanf("%s", cidade1);
@@ -49,7 +50,7 @@ int main() {
     printf("\nINSERIR DADOS DA CARTA 2\n");
 
     printf("Digite o código da cidade:\n");
-    scanf("%s", &codigo2);
+    scanf("%s", codigo2);
 
     printf("Digite a cidade:\n");
     scanf("%s", cidade2);
@@ -78,8 +79,8 @@ int main() {
 
     printf("\n NÍVEL AVENTUREIRO\n");
     
-    int atributo;
-    scanf("%d", &atributo);
+    int atributoaventureiro;
+   
 
     printf("\n1 - População\n");
     printf("2 - Área\n");
@@ -89,9 +90,9 @@ int main() {
 
 
     printf("\nEscolha o atributo: ");
-    scanf("%d", &atributo);
+    scanf(" %d", &atributoaventureiro);
     
-    switch(atributo){
+    switch(atributoaventureiro){
         
     case 1:
         if (populacao1 > populacao2)
@@ -138,15 +139,38 @@ int main() {
         else
         printf("Empate em Densidade!\n");
         break;
-
-
     }
 
+    printf("\n NÍVEL MESTRE\n");
 
+int valorjogador1 = populacao1, valorjogador2;
+int atributomestre;
 
+srand(time(0));
+valorjogador2 = rand() % 1000000 + 1;
 
+printf("\n1 - População\n");
+printf("2 - Área\n");
+printf("3 - PIB\n");
+printf("4 - Pontos turísticos\n");
+printf("5 - Densidade\n");
 
+printf("\nEscolha o atributo: ");
+scanf("%d", &atributomestre);
+
+switch(atributomestre){
+        
+    case 1:
+       printf(valorjogador1 > valorjogador2 ? 
+       "A carta 1 venceu\n" :
+       valorjogador1 < valorjogador2 ?
+       "A carta 2 venceu\n" :
+       "Empate!\n"); 
+       break;
+
+    default:
+       printf("Opção inválida\n");
+}
 
     return 0;
-}
-;
+
